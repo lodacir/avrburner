@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
@@ -30,6 +31,8 @@ public class SampleController implements Initializable {
 	 */
 	private final int FLASH = 1;
 	private final int EEPROM = 2;
+	
+	
 	@FXML
 	private AnchorPane anchor;
 
@@ -89,6 +92,12 @@ public class SampleController implements Initializable {
 	
 	@FXML
 	private TitledPane titledpane4;
+	
+	@FXML
+	private Button lereeprom;
+	
+	@FXML
+	private Button lerflash;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -113,6 +122,7 @@ public class SampleController implements Initializable {
 		select3.setItems(options3);
 		select3.getSelectionModel().select(0);
 		
+		output.setEditable(false);
 		if(!avrdude.exists()) {
 			Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
             dialogoErro.setTitle("Atenção");
@@ -218,6 +228,58 @@ public class SampleController implements Initializable {
 				}
 			}
 		});
+		
+		lerflash.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				output.setText("Aguarde....");
+				new Thread() {
+
+					@Override
+					public void run() {
+						String gravador = select1.getSelectionModel().getSelectedItem().toString();
+						String microcontrolador = select2.getSelectionModel().getSelectedItem().toString();
+						String porta = select3.getSelectionModel().getSelectedItem().toString();
+						
+						
+						
+						avrdude.setPorta(porta);
+						avrdude.setGravador(gravador);
+						avrdude.setMicrocontrolador(microcontrolador);
+						output.setText(avrdude.lerArquivo(FLASH));
+
+					}
+				}.start();	
+			}
+			
+		});
+		
+		lereeprom.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				output.setText("Aguarde....");
+				new Thread() {
+
+					@Override
+					public void run() {
+						String gravador = select1.getSelectionModel().getSelectedItem().toString();
+						String microcontrolador = select2.getSelectionModel().getSelectedItem().toString();
+						String porta = select3.getSelectionModel().getSelectedItem().toString();
+						
+						avrdude.setPorta(porta);
+						avrdude.setGravador(gravador);
+						avrdude.setMicrocontrolador(microcontrolador);
+						output.setText(avrdude.lerArquivo(EEPROM));
+						
+					}
+				}.start();	
+				
+			}
+			
+		});
+		
 
 	}
 

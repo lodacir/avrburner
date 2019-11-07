@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchor" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+<AnchorPane fx:id="anchor" maxHeight="819.0" maxWidth="1222.0" minHeight="525.0" minWidth="600.0" prefHeight="525.0" prefWidth="1222.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
-      <Pane fx:id="painelPrincipal" maxHeight="400.0" maxWidth="600.0" prefHeight="400.0" prefWidth="600.0">
+      <Pane fx:id="painelPrincipal" layoutX="16.0" layoutY="11.0" maxHeight="708.0" maxWidth="1193.0" prefHeight="513.0" prefWidth="585.0">
          <children>
-            <TitledPane fx:id="titledpane1" animated="false" collapsible="false" layoutX="14.0" layoutY="14.0" prefHeight="175.0" prefWidth="574.0" text="Configurações">
+            <TitledPane fx:id="titledpane1" animated="false" collapsible="false" layoutY="14.0" prefHeight="175.0" prefWidth="574.0" text="Configurações">
               <content>
                 <AnchorPane fx:id="painelCentral" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -27,7 +27,7 @@
                   </AnchorPane>
               </content>
             </TitledPane>
-            <TitledPane fx:id="titledpane2" animated="false" collapsible="false" layoutX="14.0" layoutY="189.0" prefHeight="106.0" prefWidth="574.0" text="Flash">
+            <TitledPane fx:id="titledpane2" animated="false" collapsible="false" layoutY="189.0" prefHeight="106.0" prefWidth="574.0" text="Flash">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="73.0" prefWidth="572.0">
                      <children>
@@ -38,7 +38,7 @@
                   </AnchorPane>
               </content>
             </TitledPane>
-            <TitledPane fx:id="titledpane3" animated="false" collapsible="false" layoutX="14.0" layoutY="297.0" prefHeight="100.0" prefWidth="574.0" text="Eeprom">
+            <TitledPane fx:id="titledpane3" animated="false" collapsible="false" layoutY="295.0" prefHeight="100.0" prefWidth="574.0" text="Eeprom">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -49,12 +49,22 @@
                   </AnchorPane>
               </content>
             </TitledPane>
+            <TitledPane animated="false" collapsible="false" layoutY="395.0" prefHeight="100.0" prefWidth="574.0" text="Leitura">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="79.0" prefWidth="605.0">
+                     <children>
+                        <Button fx:id="lereeprom" layoutX="114.0" layoutY="24.0" mnemonicParsing="false" text="Ler EEPROM" />
+                        <Button fx:id="lerflash" layoutX="386.0" layoutY="24.0" mnemonicParsing="false" text="Ler FLASH" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
          </children></Pane>
-      <TitledPane fx:id="titledpane4" collapsible="false" animated="false" layoutX="14.0" layoutY="400.0" prefHeight="196.0" prefWidth="574.0" text="Resposta">
+      <TitledPane fx:id="titledpane4" animated="false" collapsible="false" layoutX="610.0" layoutY="23.0" prefHeight="482.0" prefWidth="585.0" text="Resposta">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="169.0" prefWidth="545.0">
                <children>
-                  <TextArea fx:id="output" layoutX="13.0" layoutY="14.0" prefHeight="141.0" prefWidth="547.0" />
+                  <TextArea fx:id="output" layoutX="13.0" layoutY="14.0" prefHeight="421.0" prefWidth="547.0" />
                </children>
             </AnchorPane>
         </content>

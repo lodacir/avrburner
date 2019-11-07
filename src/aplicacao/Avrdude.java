@@ -259,6 +259,44 @@ public class Avrdude {
 		
 	}
 	
+	public String lerArquivo(int tipo) {
+		Runtime run = Runtime.getRuntime();
+		String command = "";
+		
+		switch (tipo) {
+		case 1:
+		{
+			command = "avrdude -c "+this.gravador+" -p "+this.microcontrolador+" -P "+this.porta+" -U flash:r:/home/tuje/Documentos/avrburner_V2_0/FLASH.hex:i";
+			break;	
+		}
+		case 2:
+		{
+			command = "avrdude -c "+this.gravador+" -p "+this.microcontrolador+" -P "+this.porta+" -U eeprom:r:/home/tuje/Documentos/avrburner_V2_0/EEPROM.eep:i";
+			break;	
+		}
+			
+		}
+		//System.out.println(command);
+		String output = "";
+		try {
+
+
+			Process p = run.exec(command);
+
+			Scanner scanner = new Scanner(p.getErrorStream()).useDelimiter("$$");
+			if (scanner.hasNext()) {
+				// System.out.println("Resposta");
+				output = scanner.useDelimiter("$$").next();
+				//System.out.println(output);
+				
+			}
+			
+			// System.out.println(this.listaDeUc.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return output;
+	}
 	public boolean exists() {
 		
 		Runtime run = Runtime.getRuntime();
