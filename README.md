@@ -1,7 +1,7 @@
 # avrburner
 
 Inteface linux para gravar o AVR, necessária a instalação do avrdude 6.2 ou superior.
-Grava os arquivos FLASH (.hex) e EEPROM (.eep) no AVR.
+Grava e lê os arquivos FLASH (.hex) e EEPROM (.eep) no AVR.
 lodacir@gmail.com para dúvidas.
 
 
