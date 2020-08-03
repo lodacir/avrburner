@@ -1,8 +1,12 @@
 # avrburner
 
-Inteface linux para gravar o AVR, necessária a instalação do avrdude 6.2 ou superior.
+Inteface linux para gravar o AVR, necessária a instalação do avrdude 6.2 ou superior, instalar JDK8 e javaFX com o comando: 
+
+$ sudo apt install openjdk-8-jdk openjfx
+
 Grava e lê os arquivos FLASH (.hex) e EEPROM (.eep) no AVR.
 lodacir@gmail.com para dúvidas.
+
 
 
 Microcontroladores suportados:
